@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import BarcodeScanner from './components/BarcodeScanner';
-import './App.css';
 
 function App() {
-  const [barcode, setBarcode] = useState('n/a')
-  const [startScanning, setStartScanning] = useState(false)
-  const [buttonText, setButtonText] = useState('Start Scanning')
+  const [barcode, setBarcode] = useState('n/a');
+  const [startScanning, setStartScanning] = useState(false);
+  const [buttonText, setButtonText] = useState('Start Scanning');
 
   function handleButtonClick(event){
     event.preventDefault();
