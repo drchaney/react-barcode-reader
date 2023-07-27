@@ -13,7 +13,7 @@ export default function BarcodeScanner({ setBarcode }){
   useEffect(() => {
     async function readBarcode() {
       try {
-        // decodeOnceFromVideoDevice needs two inputs: the video device, and the id of the element to show live video (optional)
+        // decodeOnceFromVideoDevice method needs two inputs: the video device, and the id of the video element to show live video (optional)
         // The first input is 'undefined' because 'getVideoInputDevices' is depreciated
         // 'scanning-video-frame' is the id of the video element in App.js
         const result = await barcodeReader.decodeOnceFromVideoDevice(undefined, 'scanning-video-frame');
@@ -22,6 +22,12 @@ export default function BarcodeScanner({ setBarcode }){
         console.error(error);
       }
     }
+    
     readBarcode();
+      // Execute reset method when BarcodeScanner unmounts so the camera doesn't stay on when the 
+      // component is no longer active ("Stop scanning" button)
+    return () => {
+      barcodeReader.reset();
+    }
   }, []);
 };
