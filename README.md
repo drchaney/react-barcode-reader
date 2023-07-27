@@ -16,7 +16,7 @@ React Barcode Reader is a simple mockup project demonstrating how to use the Zeb
 
 ## Introduction
 
-Barcode reading is a common requirement in various applications such as inventory management, hospitals, retail, ticketing, and more. The Zebra Crossing (ZXing) library is an open-source image processing library that supports reading various types of barcodes like QR codes, UPC codes, and more. This project provides a simple React application that integrates the ZXing library to read barcodes from images or live camera input.
+Barcode reading is a common requirement in various applications such as inventory management, hospitals, retail, ticketing, and more. The Zebra Crossing (ZXing) library is an open-source image processing library that supports reading various types of barcodes like QR codes and UPC codes. This project provides a simple React application that integrates the ZXing library to read barcodes from live camera input.
 
 ## Features
 
