@@ -8,7 +8,7 @@ export default function BarcodeScanner({ setBarcode }){
   // decodeOnceFromVideoDevice method needs two inputs: 
   // - The video deviceId
   // - The ID of the video element to show live video (optional)
-  // The first input is 'undefined' because 'getVideoInputDevices' is depreciated
+  // The first input is 'undefined' because 'getVideoInputDevices' is depreciated, so defaults to main camera
   // 'scanning-video-frame' is the ID of the <video> element in src/App.js
   useEffect(() => {
     async function readBarcode() {
