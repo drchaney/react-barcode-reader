@@ -19,10 +19,10 @@ export default function BarcodeScanner({ setBarcode }){
         console.error(error);
       }
     }
-    
+    readBarcode();
+
     // Execute reset method when BarcodeScanner unmounts so the camera doesn't stay on when the 
     // component is no longer active ("Stop scanning" button)
-    readBarcode();
     return () => {
       barcodeReader.reset();
     }
