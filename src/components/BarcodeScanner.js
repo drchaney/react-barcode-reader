@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 
 export default function BarcodeScanner({ setBarcode }){
-  const codeReader = new BrowserMultiFormatReader();
+  const barcodeReader = new BrowserMultiFormatReader();
 
   function handleScan(result){
     if (result) {
@@ -11,13 +11,14 @@ export default function BarcodeScanner({ setBarcode }){
   };
 
   useEffect(() => {
-    codeReader
-    .decodeOnceFromVideoDevice(undefined, 'scanning-video-frame')
-    .then(handleScan)
-    .catch(console.error);
-
-    return () => {
-      codeReader.reset();
-    };
+    async function readBarcode() {
+      try {
+        const result = await barcodeReader.decodeOnceFromVideoDevice(undefined, 'scanning-video-frame');
+        handleScan(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    readBarcode();
   }, []);
 };
